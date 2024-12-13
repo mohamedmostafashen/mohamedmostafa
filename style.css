@@ -7,6 +7,16 @@
     box-sizing: border-box;
     scroll-behavior: smooth; 
 }
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 body {
     background: #0f0c29;  /* fallback for old browsers */
@@ -327,4 +337,62 @@ section {
     body {
         font-size: 10px;
     }
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* شاشة الترحيب */
+#welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 1s ease, transform 1s ease;
+}
+#welcome-screen.hide {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none; /* لمنع التفاعل */
+}
+.welcome-content {
+    text-align: center;
+    color: #fff; /* لون النص */
+}
+
+.welcome-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Alexandria', sans-serif; /* أو أي خط تفضله */
+}
+
+#welcome-screen button {
+    background-color: #00bcd4; /* لون الزر */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#welcome-screen button:hover {
+    background-color: #008c9e; /* لون الزر عند التمرير */
 }
