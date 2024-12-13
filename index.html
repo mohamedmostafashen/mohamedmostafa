@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    <div id="welcome-screen">
+        <div class="welcome-content">
+            <h1>أهلاً بك في موقع محمد مصطفى</h1>
+            <button id="enter-site-btn">الدخول للموقع</button>
+        </div>
+    </div>
+    
     <header>
         <a href="index.html" class="logo">mohamed mostafa</a>
         <nav class="navigation">
@@ -20,7 +27,7 @@
         
     </header>
 
-    <section class="main">
+    <section class="fade-in main">
         <div>
             <h2>محمد مصطفى عباس<br><span>مبرمج مواقع</span></h2>
             <h3>(html&css)بقالي سنة متعلم البرمجة و معايا لغتين</h3>
@@ -31,28 +38,28 @@
             </div>
         </div>
     </section>
-    <section class="cards" id="services">
+    <section class="cards fade-in" id="services">
         <h2 class="title">مميزاتي</h2>
         <div class="content">
-            <div class="card">
+            <div class="card fade-in">
                 <div class="icon">
-                    <i class="fa-solid fa-truck-fast"></i> <!-- أيقونة السرعة -->
+                    <i class="fa-solid fa-truck-fast"></i>
                 </div>
                 <div class="info">
                     <h3>السرعة</h3>
                     <p>هتستلم الموقع من 2-3 أيام</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card fade-in">
                 <div class="icon">
-                    <i class="fa-solid fa-palette"></i> <!-- أيقونة التصميم -->
+                    <i class="fa-solid fa-palette"></i>
                 </div>
                 <div class="info">
                     <h3>المظهر</h3>
                     <p>الموقع هيبقى تنسيقة و الوانة حسب رغبة حضرتك</p>
                 </div>
             </div>
-            <div class="card">
+            <div class="card fade-in">
                 <div class="icon">
                     <i class="fas fa-comment"></i>
                 </div>
@@ -63,7 +70,7 @@
             </div>
         </div>
     </section>
-    <section class="projects" id="projects">
+    <section class="cards fade-in" class="projects" id="projects">
         <h2 class="title">مشاريعي</h2>
         <div class="content">
             <div class="project-card">
@@ -100,7 +107,7 @@
                 </div>
             </div>
     </section>
-    <section class="cards contact" id="contact">
+    <section  class="cards contact" id="contact">
         <h2 class="title">للتواصل</h2>
         <div class="content">
             <div class="card">
@@ -133,5 +140,41 @@
                 <a href="https://www.instagram.com/mohamedmostafashen?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
         </div>
     </footer>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".fade-in");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, {
+            threshold: 0.2 // Adjust visibility threshold as needed
+        });
+
+        elements.forEach(el => observer.observe(el));
+    });
+    
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const enterSiteBtn = document.getElementById("enter-site-btn");
+    const welcomeScreen = document.getElementById("welcome-screen");
+
+    enterSiteBtn.addEventListener("click", () => {
+        // أضف صنف "hide" لتطبيق الأنيميشن
+        welcomeScreen.classList.add("hide");
+        
+        // بعد انتهاء الأنيميشن قم بإخفاء العنصر تمامًا
+        setTimeout(() => {
+            welcomeScreen.style.display = "none";
+        }, 1000); // نفس مدة الـ transition في CSS
+    });
+});
+
+    </script>
 </body>
 </html>
